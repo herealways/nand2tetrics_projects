@@ -1,0 +1,538 @@
+function BattleSimulator.new 0
+push constant 1
+call Memory.alloc 1
+pop pointer 0
+push pointer 0
+return
+function BattleSimulator.fight 4
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push argument 1
+call Monster.getDefense 1
+pop local 2
+push argument 2
+call Monster.getDefense 1
+pop local 3
+label WHILE_EXP0
+push local 0
+not
+not
+if-goto WHILE_END0
+push argument 1
+push local 3
+call Monster.hit 2
+pop local 1
+push argument 2
+push local 1
+call Monster.defense 2
+pop temp 0
+push argument 2
+call Monster.check 1
+pop local 0
+push constant 1000
+call Sys.wait 1
+pop temp 0
+push local 0
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 2
+push local 2
+call Monster.hit 2
+pop local 1
+push argument 1
+push local 1
+call Monster.defense 2
+pop temp 0
+push argument 1
+call Monster.check 1
+pop local 0
+push constant 1000
+call Sys.wait 1
+pop temp 0
+label IF_FALSE0
+goto WHILE_EXP0
+label WHILE_END0
+push argument 1
+call Monster.dispose 1
+pop temp 0
+push argument 2
+call Monster.dispose 1
+pop temp 0
+push constant 0
+return
+function BattleSimulator.run 5
+push argument 0
+pop pointer 0
+label WHILE_EXP0
+push local 4
+not
+not
+if-goto WHILE_END0
+label WHILE_EXP1
+push local 0
+push constant 0
+eq
+not
+if-goto WHILE_END1
+call Keyboard.keyPressed 0
+pop local 0
+goto WHILE_EXP1
+label WHILE_END1
+push local 0
+push constant 49
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 7
+call String.new 1
+push constant 87
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 100
+push constant 10
+push constant 10
+push constant 1
+push constant 100
+push constant 1
+call Monster.new 7
+pop local 1
+label IF_FALSE0
+push local 0
+push constant 50
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 5
+call String.new 1
+push constant 83
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 40
+push constant 20
+push constant 2
+push constant 2
+push constant 100
+push constant 1
+call Monster.new 7
+pop local 1
+label IF_FALSE1
+push local 0
+push constant 51
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 10
+call String.new 1
+push constant 82
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 107
+call String.appendChar 2
+push constant 121
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 20
+push constant 16
+push constant 16
+push constant 3
+push constant 100
+push constant 1
+call Monster.new 7
+pop local 1
+label IF_FALSE2
+push local 0
+push constant 52
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 8
+call String.new 1
+push constant 83
+call String.appendChar 2
+push constant 107
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 25
+push constant 55
+push constant 0
+push constant 4
+push constant 100
+push constant 1
+call Monster.new 7
+pop local 1
+label IF_FALSE3
+push local 0
+push constant 53
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push constant 8
+call String.new 1
+push constant 66
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 350
+push constant 12
+push constant 0
+push constant 5
+push constant 100
+push constant 1
+call Monster.new 7
+pop local 1
+label IF_FALSE4
+push local 0
+push constant 90
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push constant 11
+call String.new 1
+push constant 78
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 87
+call String.appendChar 2
+push constant 95
+call String.appendChar 2
+push constant 77
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 84
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 666
+push constant 22
+push constant 11
+push constant 10
+push constant 100
+push constant 1
+call Monster.new 7
+pop local 1
+label IF_FALSE5
+push local 0
+push constant 54
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push constant 7
+call String.new 1
+push constant 87
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 100
+push constant 10
+push constant 10
+push constant 1
+push constant 200
+push constant 2
+call Monster.new 7
+pop local 2
+label IF_FALSE6
+push local 0
+push constant 55
+eq
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+push constant 5
+call String.new 1
+push constant 83
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 40
+push constant 20
+push constant 2
+push constant 2
+push constant 200
+push constant 2
+call Monster.new 7
+pop local 2
+label IF_FALSE7
+push local 0
+push constant 56
+eq
+if-goto IF_TRUE8
+goto IF_FALSE8
+label IF_TRUE8
+push constant 10
+call String.new 1
+push constant 82
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 107
+call String.appendChar 2
+push constant 121
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 20
+push constant 16
+push constant 16
+push constant 3
+push constant 200
+push constant 2
+call Monster.new 7
+pop local 2
+label IF_FALSE8
+push local 0
+push constant 57
+eq
+if-goto IF_TRUE9
+goto IF_FALSE9
+label IF_TRUE9
+push constant 8
+call String.new 1
+push constant 83
+call String.appendChar 2
+push constant 107
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 25
+push constant 55
+push constant 0
+push constant 4
+push constant 200
+push constant 2
+call Monster.new 7
+pop local 2
+label IF_FALSE9
+push local 0
+push constant 48
+eq
+if-goto IF_TRUE10
+goto IF_FALSE10
+label IF_TRUE10
+push constant 8
+call String.new 1
+push constant 66
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 350
+push constant 12
+push constant 0
+push constant 5
+push constant 200
+push constant 2
+call Monster.new 7
+pop local 2
+label IF_FALSE10
+push local 0
+push constant 88
+eq
+if-goto IF_TRUE11
+goto IF_FALSE11
+label IF_TRUE11
+push constant 11
+call String.new 1
+push constant 78
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 87
+call String.appendChar 2
+push constant 95
+call String.appendChar 2
+push constant 77
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 84
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 666
+push constant 22
+push constant 11
+push constant 10
+push constant 200
+push constant 2
+call Monster.new 7
+pop local 2
+label IF_FALSE11
+push local 0
+push constant 70
+eq
+if-goto IF_TRUE12
+goto IF_FALSE12
+label IF_TRUE12
+push pointer 0
+push local 1
+push local 2
+call BattleSimulator.fight 3
+pop temp 0
+label IF_FALSE12
+push local 0
+push constant 67
+eq
+if-goto IF_TRUE13
+goto IF_FALSE13
+label IF_TRUE13
+call Screen.clearScreen 0
+pop temp 0
+label IF_FALSE13
+push local 0
+push constant 81
+eq
+if-goto IF_TRUE14
+goto IF_FALSE14
+label IF_TRUE14
+push constant 0
+not
+pop local 4
+label IF_FALSE14
+label WHILE_EXP2
+push local 0
+push constant 0
+eq
+not
+not
+if-goto WHILE_END2
+call Keyboard.keyPressed 0
+pop local 0
+goto WHILE_EXP2
+label WHILE_END2
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function BattleSimulator.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return

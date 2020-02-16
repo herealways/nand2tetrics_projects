@@ -1,0 +1,161 @@
+class DrawMonster {
+	static int memAddress;
+    /** Function drawCompetitor will draw monster according to monsterCode */
+    function void drawCompetitor(int monsterCode, int location) {
+        if (monsterCode = 1) {do DrawMonster.drawWarrior(location);}
+        if (monsterCode = 2) {do DrawMonster.drawSlime(location);}
+		if (monsterCode = 3) {do DrawMonster.drawRockySlime(location);}
+		if (monsterCode = 4) {do DrawMonster.drawSkeleton(location);}
+		if (monsterCode = 5) {do DrawMonster.drawBigSlime(location);}
+		if (monsterCode = 10) {do DrawMonster.drawNEW_MONSTER(location);}
+		return;
+    }
+
+    function void drawWarrior(int location) {
+	let memAddress = 16384+location;
+	do Memory.poke(memAddress+0, 2032);
+	do Memory.poke(memAddress+32, 1040);
+	do Memory.poke(memAddress+64, 1360);
+	do Memory.poke(memAddress+96, 1044);
+	do Memory.poke(memAddress+128, 2036);
+	do Memory.poke(memAddress+160, 25028);
+	do Memory.poke(memAddress+192, -28220);
+	do Memory.poke(memAddress+224, -28210);
+	do Memory.poke(memAddress+256, -24580);
+	do Memory.poke(memAddress+288, -28220);
+	do Memory.poke(memAddress+320, 25024);
+	do Memory.poke(memAddress+352, 544);
+	do Memory.poke(memAddress+384, 1040);
+	do Memory.poke(memAddress+416, 2056);
+	do Memory.poke(memAddress+448, 4100);
+	do Memory.poke(memAddress+480, 0);
+	return;
+    }
+
+    function void drawSlime(int location) {
+	let memAddress = 16384+location;
+	do Memory.poke(memAddress+0, 0);
+	do Memory.poke(memAddress+32, 0);
+	do Memory.poke(memAddress+64, 0);
+	do Memory.poke(memAddress+96, 8184);
+	do Memory.poke(memAddress+128, 4104);
+	do Memory.poke(memAddress+160, 4104);
+	do Memory.poke(memAddress+192, 5160);
+	do Memory.poke(memAddress+224, 4104);
+	do Memory.poke(memAddress+256, 4104);
+	do Memory.poke(memAddress+288, 4488);
+	do Memory.poke(memAddress+320, 4104);
+	do Memory.poke(memAddress+352, 4104);
+	do Memory.poke(memAddress+384, 8184);
+	do Memory.poke(memAddress+416, 0);
+	do Memory.poke(memAddress+448, 0);
+	do Memory.poke(memAddress+480, 0);
+	return;
+    }
+
+	function void drawRockySlime(int location) {
+	let memAddress = 16384+location;
+	do Memory.poke(memAddress+0, 0);
+	do Memory.poke(memAddress+32, 0);
+	do Memory.poke(memAddress+64, 0);
+	do Memory.poke(memAddress+96, 8184);
+	do Memory.poke(memAddress+128, 8184);
+	do Memory.poke(memAddress+160, 6552);
+	do Memory.poke(memAddress+192, 6552);
+	do Memory.poke(memAddress+224, 8184);
+	do Memory.poke(memAddress+256, 8184);
+	do Memory.poke(memAddress+288, 8184);
+	do Memory.poke(memAddress+320, 8184);
+	do Memory.poke(memAddress+352, 8184);
+	do Memory.poke(memAddress+384, 8184);
+	do Memory.poke(memAddress+416, 0);
+	do Memory.poke(memAddress+448, 0);
+	do Memory.poke(memAddress+480, 0);
+	return;
+}
+
+	function void drawSkeleton(int location) {
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 2032);
+		do Memory.poke(memAddress+32, 1040);
+		do Memory.poke(memAddress+64, 1040);
+		do Memory.poke(memAddress+96, 1040);
+		do Memory.poke(memAddress+128, 2032);
+		do Memory.poke(memAddress+160, 128);
+		do Memory.poke(memAddress+192, 4088);
+		do Memory.poke(memAddress+224, 2184);
+		do Memory.poke(memAddress+256, 3048);
+		do Memory.poke(memAddress+288, 2184);
+		do Memory.poke(memAddress+320, 3048);
+		do Memory.poke(memAddress+352, 128);
+		do Memory.poke(memAddress+384, 320);
+		do Memory.poke(memAddress+416, 544);
+		do Memory.poke(memAddress+448, 1040);
+		do Memory.poke(memAddress+480, 2056);
+		return;
+	}
+
+	function void drawBigSlime(int location) {
+	let memAddress = 16384+location;
+	do Memory.poke(memAddress+0, -1);
+	do Memory.poke(memAddress+32, -32767);
+	do Memory.poke(memAddress+64, -32767);
+	do Memory.poke(memAddress+96, -25543);
+	do Memory.poke(memAddress+128, -25543);
+	do Memory.poke(memAddress+160, -25543);
+	do Memory.poke(memAddress+192, -32767);
+	do Memory.poke(memAddress+224, -32767);
+	do Memory.poke(memAddress+256, -32767);
+	do Memory.poke(memAddress+288, -32767);
+	do Memory.poke(memAddress+320, -30751);
+	do Memory.poke(memAddress+352, -32767);
+	do Memory.poke(memAddress+384, -32767);
+	do Memory.poke(memAddress+416, -32767);
+	do Memory.poke(memAddress+448, -32767);
+	do Memory.poke(memAddress+480, -1);
+	return;
+}
+
+	/**Draw an X after one of the competitors is defeated*/
+	function void drawDefeated(int location) {
+	var int memAddress;
+	let memAddress = 16384+location;
+	do Memory.poke(memAddress+0, -32767);
+	do Memory.poke(memAddress+32, 16386);
+	do Memory.poke(memAddress+64, 8196);
+	do Memory.poke(memAddress+96, 4104);
+	do Memory.poke(memAddress+128, 2064);
+	do Memory.poke(memAddress+160, 1056);
+	do Memory.poke(memAddress+192, 576);
+	do Memory.poke(memAddress+224, 384);
+	do Memory.poke(memAddress+256, 384);
+	do Memory.poke(memAddress+288, 576);
+	do Memory.poke(memAddress+320, 1056);
+	do Memory.poke(memAddress+352, 2064);
+	do Memory.poke(memAddress+384, 4104);
+	do Memory.poke(memAddress+416, 8196);
+	do Memory.poke(memAddress+448, 16386);
+	do Memory.poke(memAddress+480, -32767);
+	return;
+}
+	function void drawNEW_MONSTER(int location) {
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 0);
+		do Memory.poke(memAddress+32, 0);
+		do Memory.poke(memAddress+64, 16396);
+		do Memory.poke(memAddress+96, 16404);
+		do Memory.poke(memAddress+128, 16420);
+		do Memory.poke(memAddress+160, 16452);
+		do Memory.poke(memAddress+192, 16516);
+		do Memory.poke(memAddress+224, 16644);
+		do Memory.poke(memAddress+256, 16900);
+		do Memory.poke(memAddress+288, 17412);
+		do Memory.poke(memAddress+320, 18436);
+		do Memory.poke(memAddress+352, 20484);
+		do Memory.poke(memAddress+384, 24580);
+		do Memory.poke(memAddress+416, 0);
+		do Memory.poke(memAddress+448, 0);
+		do Memory.poke(memAddress+480, 0);
+		return;
+	}
+}

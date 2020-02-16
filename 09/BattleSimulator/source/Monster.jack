@@ -1,0 +1,132 @@
+class Monster {
+    field str name;
+    field int health, attack, defense, monsterCode, location, order, orderReplica;
+
+    /** Constructs a monster */
+    constructor Monster new(str n, int hp, int att, int def, inc code, int loc, int order) {
+        let name = n;
+        let health = hp;
+        let attack = att;
+        let defense = def;
+        let monsterCode = code;
+        let location = loc;
+        let order = order;
+        /* This is set to fix an unknown bug */
+        let orderReplica = order;
+        do DrawMonster.drawCompetitor(monsterCode, location);
+        /* Order is used to dinstinguish competitor1 between competitor2 */
+        do showCompetitorInfo(order);
+        return this;
+    }
+
+
+    method void showCompetitorInfo(int order) {
+        //These variables is usd to print infos at exactly where they should be
+        var int startRow;
+        var int y1;
+        var int y2;
+        if (order = 1) {let startRow = 3;}
+        if (order = 2) {let startRow = 11;}
+        let y1 = startRow * 11;
+        let y2 = (startRow + 6) * 11;
+        do Output.moveCursor(startRow, 0);
+        //Draw a white rectangle in order to clear the old data
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0, y1,511,y2);
+
+        do Output.printString("Competitor");
+        do Output.printInt(order);
+        do Output.println();
+        do Output.printString("Name: ");
+        do Output.printString(name);
+        do Output.println();
+        do Output.println();
+        do Output.printString("Health: ");
+        do Output.printInt(health);
+        do Output.println();
+        do Output.printString("Attack: ");
+        do Output.printInt(attack);
+        do Output.println();
+        do Output.printString("Defense: ");
+        do Output.printInt(defense);
+        do Output.println();
+        return;
+    }
+
+
+
+    /** Accessors */
+    method int getDefense() {return defense;}
+
+    /** Let the monster to hit another monster once*/
+    method int hit(int opponentDefense) {
+        var int damage;
+        /**damage to opponent = monster's attack - opponent's defense  if opponent's defense > monster's attack, damage = 1*/
+        if (opponentDefense > attack) {let damage = 1;}
+        else {let damage = attack - opponentDefense;}
+        if (opponentDefense = attack) {let damage = 1;}
+        
+        //Show battle logs:
+
+        //Clear previous output by drawing a white rectangle
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0, 209, 511, 231);
+
+        //Print battle logs
+        do Output.moveCursor(19, 0);
+        do Output.printString(name);
+        do Output.printString(" dealt ");
+        do Output.printInt(damage);
+        do Output.printString(" damage");
+        do Output.printString(" to his opponent. ");
+        return damage;
+    }
+
+    /**After being hit, current_health = health - damage*/
+    method void defense(int damage) {
+        //These variables is usd to print logs at exactly where they should be
+        var int startRow;
+        var int y1;
+        var int y2;
+        if (orderReplica = 1) {let startRow = 6;}
+        if (orderReplica = 2) {let startRow = 14;}
+        let y1 = startRow * 11;
+        let y2 = (startRow + 1) * 11;
+
+        let health = health - damage;
+        if (health < 1 ) {let health = 0;}
+        
+        do Output.printString(name);
+        do Output.printString(" has ");
+        do Output.printInt(health);
+        do Output.printString(" health left.");
+        do Output.println();
+
+        /* Update Monster's health */
+        do Screen.drawRectangle(0, y1, 511, y2);
+        do Output.moveCursor(startRow, 0);
+        do Output.printString("Health: ");
+        do Output.printInt(health);
+        do Output.println();
+        return;
+    }
+
+    /**Check if the monster is defeated. if current_health <= 0 then the monster is defeated*/
+    method boolean check() {
+        if (health = 0 ) {
+            do DrawMonster.drawDefeated(location);
+            do Output.moveCursor(21, 0);
+            do Output.printString(name);
+            do Output.printString(" was defeated.");
+            do Output.println();
+            return true;
+        } /* true - monster is defeated */
+        return false;
+    }
+
+    /** Disposes this monster */
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+}

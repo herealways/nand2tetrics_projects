@@ -1,0 +1,806 @@
+function DrawMonster.drawCompetitor 0
+push argument 0
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 1
+call DrawMonster.drawWarrior 1
+pop temp 0
+label IF_FALSE0
+push argument 0
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push argument 1
+call DrawMonster.drawSlime 1
+pop temp 0
+label IF_FALSE1
+push argument 0
+push constant 3
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push argument 1
+call DrawMonster.drawRockySlime 1
+pop temp 0
+label IF_FALSE2
+push argument 0
+push constant 4
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push argument 1
+call DrawMonster.drawSkeleton 1
+pop temp 0
+label IF_FALSE3
+push argument 0
+push constant 5
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push argument 1
+call DrawMonster.drawBigSlime 1
+pop temp 0
+label IF_FALSE4
+push argument 0
+push constant 10
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push argument 1
+call DrawMonster.drawNEW_MONSTER 1
+pop temp 0
+label IF_FALSE5
+push constant 0
+return
+function DrawMonster.drawWarrior 0
+push constant 16384
+push argument 0
+add
+pop static 0
+push static 0
+push constant 0
+add
+push constant 2032
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 32
+add
+push constant 1040
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 64
+add
+push constant 1360
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 96
+add
+push constant 1044
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 128
+add
+push constant 2036
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 160
+add
+push constant 25028
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 192
+add
+push constant 28220
+neg
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 224
+add
+push constant 28210
+neg
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 256
+add
+push constant 24580
+neg
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 288
+add
+push constant 28220
+neg
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 320
+add
+push constant 25024
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 352
+add
+push constant 544
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 384
+add
+push constant 1040
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 416
+add
+push constant 2056
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 448
+add
+push constant 4100
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function DrawMonster.drawSlime 0
+push constant 16384
+push argument 0
+add
+pop static 0
+push static 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 64
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 96
+add
+push constant 8184
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 128
+add
+push constant 4104
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 160
+add
+push constant 4104
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 192
+add
+push constant 5160
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 224
+add
+push constant 4104
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 256
+add
+push constant 4104
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 288
+add
+push constant 4488
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 320
+add
+push constant 4104
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 352
+add
+push constant 4104
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 384
+add
+push constant 8184
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 416
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 448
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function DrawMonster.drawRockySlime 0
+push constant 16384
+push argument 0
+add
+pop static 0
+push static 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 64
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 96
+add
+push constant 8184
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 128
+add
+push constant 8184
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 160
+add
+push constant 6552
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 192
+add
+push constant 6552
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 224
+add
+push constant 8184
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 256
+add
+push constant 8184
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 288
+add
+push constant 8184
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 320
+add
+push constant 8184
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 352
+add
+push constant 8184
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 384
+add
+push constant 8184
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 416
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 448
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function DrawMonster.drawSkeleton 0
+push constant 16384
+push argument 0
+add
+pop static 0
+push static 0
+push constant 0
+add
+push constant 2032
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 32
+add
+push constant 1040
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 64
+add
+push constant 1040
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 96
+add
+push constant 1040
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 128
+add
+push constant 2032
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 160
+add
+push constant 128
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 192
+add
+push constant 4088
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 224
+add
+push constant 2184
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 256
+add
+push constant 3048
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 288
+add
+push constant 2184
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 320
+add
+push constant 3048
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 352
+add
+push constant 128
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 384
+add
+push constant 320
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 416
+add
+push constant 544
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 448
+add
+push constant 1040
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 480
+add
+push constant 2056
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function DrawMonster.drawBigSlime 0
+push constant 16384
+push argument 0
+add
+pop static 0
+push static 0
+push constant 0
+add
+push constant 1
+neg
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 32
+add
+push constant 32767
+neg
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 64
+add
+push constant 32767
+neg
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 96
+add
+push constant 25543
+neg
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 128
+add
+push constant 25543
+neg
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 160
+add
+push constant 25543
+neg
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 192
+add
+push constant 32767
+neg
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 224
+add
+push constant 32767
+neg
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 256
+add
+push constant 32767
+neg
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 288
+add
+push constant 32767
+neg
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 320
+add
+push constant 30751
+neg
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 352
+add
+push constant 32767
+neg
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 384
+add
+push constant 32767
+neg
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 416
+add
+push constant 32767
+neg
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 448
+add
+push constant 32767
+neg
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 480
+add
+push constant 1
+neg
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function DrawMonster.drawDefeated 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 32767
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 16386
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 8196
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 4104
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 2064
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 1056
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 576
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 384
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 384
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 576
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 1056
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 2064
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 4104
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 8196
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 16386
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 32767
+neg
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function DrawMonster.drawNEW_MONSTER 0
+push constant 16384
+push argument 0
+add
+pop static 0
+push static 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 64
+add
+push constant 16396
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 96
+add
+push constant 16404
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 128
+add
+push constant 16420
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 160
+add
+push constant 16452
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 192
+add
+push constant 16516
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 224
+add
+push constant 16644
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 256
+add
+push constant 16900
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 288
+add
+push constant 17412
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 320
+add
+push constant 18436
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 352
+add
+push constant 20484
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 384
+add
+push constant 24580
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 416
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 448
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push static 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
