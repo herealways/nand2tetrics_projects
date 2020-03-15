@@ -1,0 +1,7 @@
+while 1:
+	if KBD=0:
+		for i in range(8192):
+			SCREEN[i]=0
+	else:
+		for i in range(8192):
+			SCREEN[i]=-1
