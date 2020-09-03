@@ -1,13 +1,13 @@
 class Parser(object):
 
     def parse(self, asm_codes: str):
-        parsed_code=[]
+        parsed_code = []
         for line in asm_codes.split('\n'):
             # ignore white space and comments
-            comment_begin_at=line.find('//')
+            comment_begin_at = line.find('//')
             if comment_begin_at != -1:
-                line=line[:comment_begin_at]
-            line=line.strip()
+                line = line[:comment_begin_at]
+            line = line.strip()
             if line == '':
                 pass
             else:
@@ -16,8 +16,8 @@ class Parser(object):
 
 
 if __name__ == "__main__":
-    p=Parser()
-    test_code=[
+    p = Parser()
+    test_code = [
         "   @R0 //1234",
         "                                                  ",
         "(LOOP)",
@@ -26,7 +26,7 @@ if __name__ == "__main__":
         "   D;JGT",
     ]
 
-    test_code2="""
+    test_code2 = """
 // This file is part of www.nand2tetris.org
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.

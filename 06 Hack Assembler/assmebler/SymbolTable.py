@@ -1,18 +1,18 @@
 class SymbolTable(object):
-    
-    def add_symbol(self,symbol,label_address=0):
-        if label_address==0:
-            self.symbol_table[symbol]=str(self.init_address)
+
+    def add_symbol(self, symbol, label_address=0):
+        if label_address == 0:
+            self.symbol_table[symbol] = str(self.init_address)
             self.init_address += 1
         else:
-            self.symbol_table[symbol]=str(label_address)
-    
-    def get_symbol(self,symbol):
-        return self.symbol_table[symbol]
-    
-    init_address=16
+            self.symbol_table[symbol] = str(label_address)
 
-    symbol_table={
+    def get_symbol(self, symbol):
+        return self.symbol_table[symbol]
+
+    init_address = 16
+
+    symbol_table = {
         "R0": '0',
         "R1": '1',
         "R2": '2',

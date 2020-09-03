@@ -2,23 +2,27 @@ class CodeWriter:
     def __init__(self, output_file_obj, vm_file_name):
         self.file = output_file_obj
         self.file_name = vm_file_name
-        self.label_count = 0  #This is used for defining a different label name every time
+        # This is used for defining a different label name every time
+        self.label_count = 0
+
     def constructor(self, cmd_type, arg1, arg2):
         asm_code = ''
         if cmd_type == 'C_ARITHMETIC':
             asm_code = self.write_arithmetic(arg1)
         elif cmd_type == 'C_PUSH' or cmd_type == 'C_POP':
             asm_code = self.write_push_pop(cmd_type, arg1, arg2)
-        
+
         self.file.write(asm_code)
 
     def write_arithmetic(self, arg1):
         if arg1 in ['eq', 'gt', 'lt']:
-            asm_code = eval('self.{}_asm'.format(arg1)).format(self.label_count)
+            asm_code = eval('self.{}_asm'.format(arg1)
+                            ).format(self.label_count)
             self.label_count += 1
         else:
             asm_code = eval('self.'+arg1+'_asm')
         return asm_code
+
     def write_push_pop(self, cmd_type, arg1, arg2):
         asm_code = ''
         if arg1 == 'constant':
@@ -27,10 +31,12 @@ class CodeWriter:
 
         elif arg1 in ['local', 'argument', 'this', 'that']:
             if cmd_type == 'C_PUSH':
-                asm_code = self.push_local_argument_this_that_asm.format(arg1, arg2, self.symbol_table[arg1])
+                asm_code = self.push_local_argument_this_that_asm.format(
+                    arg1, arg2, self.symbol_table[arg1])
             elif cmd_type == 'C_POP':
-                asm_code = self.pop_local_argument_this_that_asm.format(arg1, arg2, self.symbol_table[arg1])
-        
+                asm_code = self.pop_local_argument_this_that_asm.format(
+                    arg1, arg2, self.symbol_table[arg1])
+
         elif arg1 == 'static':
             var_name = self.file_name + '.' + str(arg2)
             if cmd_type == 'C_PUSH':
@@ -43,15 +49,16 @@ class CodeWriter:
                 asm_code = self.push_temp_asm.format(arg2)
             elif cmd_type == 'C_POP':
                 asm_code = self.pop_temp_asm.format(arg2)
-        
+
         elif arg1 == 'pointer':
             if cmd_type == 'C_PUSH':
-                asm_code = self.push_pointer_asm.format(arg2, self.pointer_table[arg2])
+                asm_code = self.push_pointer_asm.format(
+                    arg2, self.pointer_table[arg2])
             elif cmd_type == 'C_POP':
-                asm_code = self.pop_pointer_asm.format(arg2, self.pointer_table[arg2])
+                asm_code = self.pop_pointer_asm.format(
+                    arg2, self.pointer_table[arg2])
 
         return asm_code
-
 
     add_asm = """
 //add    asm code
@@ -82,7 +89,7 @@ D=M
 M=M-1
 @SP //result = x-y
 A=M
-D=M-D 
+D=M-D
 @SP //RAM[SP]= result
 A=M
 M=D
@@ -95,7 +102,7 @@ M=M+1
 M=M-1
 @SP //y = -y
 A=M
-M=-M 
+M=-M
 @SP //SP++
 M=M+1
 """
@@ -108,7 +115,7 @@ D=M
 @SP //SP --
 M=M-1
 A=M //if x-y = 0
-D=M-D 
+D=M-D
 @eq{0}
 D;JEQ
 @SP //else x-y !=0
@@ -133,7 +140,7 @@ D=M
 @SP //SP --
 M=M-1
 A=M //if x-y > 0
-D=M-D 
+D=M-D
 @gt{0}
 D;JGT
 @SP //else x-y <=0
@@ -158,7 +165,7 @@ D=M
 @SP //SP --
 M=M-1
 A=M //if x-y < 0
-D=M-D 
+D=M-D
 @lt{0}
 D;JLT
 @SP //else x-y >=0
@@ -185,7 +192,7 @@ D=M
 M=M-1
 @SP //result x and y
 A=M
-D=D&M 
+D=D&M
 @SP //RAM[SP]= result
 A=M
 M=D
@@ -203,7 +210,7 @@ D=M
 M=M-1
 @SP //result x or y
 A=M
-D=D|M 
+D=D|M
 @SP //RAM[SP]= result
 A=M
 M=D

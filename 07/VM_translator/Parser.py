@@ -1,19 +1,20 @@
 from CodeWriter import CodeWriter
 
+
 class Parser:
 
     def __init__(self, input_file_obj, output_file_obj, vm_file_name):
         self.c = CodeWriter(output_file_obj, vm_file_name)
         self.constructor(input_file_obj)
-    
+
     def constructor(self, file_obj):
         for line in file_obj:
-            #strip comments and white spaces
-            comment_begin_at=line.find('//')
+            # strip comments and white spaces
+            comment_begin_at = line.find('//')
             if comment_begin_at == -1:
                 line = line
             elif comment_begin_at == 0:
-                continue    #ignore comment line
+                continue  # ignore comment line
             else:
                 line = line[:comment_begin_at]
             line = line.strip()
@@ -55,11 +56,8 @@ class Parser:
             cmd_type = 'C_RETURN'
         elif first_cmd == 'call':
             cmd_type = 'C_CALL'
-        print (cmd_type)
+        print(cmd_type)
         return cmd_type, cmd
-        
-
-
 
     def parse_argument1(self, cmd_type, cmd):
         if cmd_type == 'C_ARITHMETIC':
@@ -68,12 +66,11 @@ class Parser:
             arg1 = cmd[1]
         print(arg1)
         return arg1
-    
+
     def parse_argument2(self, cmd):
         arg2 = int(cmd[2])
         print(arg2)
         return arg2
-
 
     arithmetic_cmd = [
         'add',

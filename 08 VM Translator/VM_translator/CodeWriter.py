@@ -1,9 +1,11 @@
 class CodeWriter:
-    label_count = 0  #This is used for defining a different label name every time
-    func_count = 0 # functionName$ret.1 .2 .3 ...
-    return_count = 0 #endFrame.1 .2 .3   retAddr.1 .2 .3
+    label_count = 0  # This is used for defining a different label name every time
+    func_count = 0  # functionName$ret.1 .2 .3 ...
+    return_count = 0  # endFrame.1 .2 .3   retAddr.1 .2 .3
+
     def __init__(self, output_file_obj):
         self.file = output_file_obj
+
     def constructor(self, cmd_type, arg1, arg2):
         asm_code = ''
         if cmd_type == 'C_ARITHMETIC':
@@ -22,16 +24,18 @@ class CodeWriter:
             asm_code = self.write_call(arg1, arg2)
         elif cmd_type == 'C_RETURN':
             asm_code = self.write_return()
-        
+
         self.file.write(asm_code)
 
     def write_arithmetic(self, arg1):
         if arg1 in ['eq', 'gt', 'lt']:
-            asm_code = eval('self.{}_asm'.format(arg1)).format(self.label_count)
+            asm_code = eval('self.{}_asm'.format(arg1)
+                            ).format(self.label_count)
             self.label_count += 1
         else:
             asm_code = eval('self.'+arg1+'_asm')
         return asm_code
+
     def write_push_pop(self, cmd_type, arg1, arg2):
         asm_code = ''
         if arg1 == 'constant':
@@ -40,10 +44,12 @@ class CodeWriter:
 
         elif arg1 in ['local', 'argument', 'this', 'that']:
             if cmd_type == 'C_PUSH':
-                asm_code = self.push_local_argument_this_that_asm.format(arg1, arg2, self.symbol_table[arg1])
+                asm_code = self.push_local_argument_this_that_asm.format(
+                    arg1, arg2, self.symbol_table[arg1])
             elif cmd_type == 'C_POP':
-                asm_code = self.pop_local_argument_this_that_asm.format(arg1, arg2, self.symbol_table[arg1])
-        
+                asm_code = self.pop_local_argument_this_that_asm.format(
+                    arg1, arg2, self.symbol_table[arg1])
+
         elif arg1 == 'static':
             var_name = self.vm_file_name + '.' + str(arg2)
             if cmd_type == 'C_PUSH':
@@ -56,15 +62,17 @@ class CodeWriter:
                 asm_code = self.push_temp_asm.format(arg2)
             elif cmd_type == 'C_POP':
                 asm_code = self.pop_temp_asm.format(arg2)
-        
+
         elif arg1 == 'pointer':
             if cmd_type == 'C_PUSH':
-                asm_code = self.push_pointer_asm.format(arg2, self.pointer_table[arg2])
+                asm_code = self.push_pointer_asm.format(
+                    arg2, self.pointer_table[arg2])
             elif cmd_type == 'C_POP':
-                asm_code = self.pop_pointer_asm.format(arg2, self.pointer_table[arg2])
+                asm_code = self.pop_pointer_asm.format(
+                    arg2, self.pointer_table[arg2])
 
         return asm_code
-    
+
     def write_label(self, arg1):
         asm_code = self.label_asm.format(arg1, self.vm_file_name)
         return asm_code
@@ -76,7 +84,7 @@ class CodeWriter:
     def write_if_goto(self, arg1):
         asm_code = self.if_asm.format(arg1, self.vm_file_name)
         return asm_code
-    
+
     def write_function(self, arg1, arg2):
         asm_code = self.function_asm.format(arg1, arg2)
         if arg2 == 0:
@@ -96,7 +104,6 @@ class CodeWriter:
         asm_code = self.return_asm.format(self.return_count)
         self.return_count += 1
         return asm_code
-
 
     add_asm = """
 //add    asm code
@@ -127,7 +134,7 @@ D=M
 M=M-1
 @SP //result = x-y
 A=M
-D=M-D 
+D=M-D
 @SP //RAM[SP]= result
 A=M
 M=D
@@ -140,7 +147,7 @@ M=M+1
 M=M-1
 @SP //y = -y
 A=M
-M=-M 
+M=-M
 @SP //SP++
 M=M+1
 """
@@ -153,7 +160,7 @@ D=M
 @SP //SP --
 M=M-1
 A=M //if x-y = 0
-D=M-D 
+D=M-D
 @eq{0}
 D;JEQ
 @SP //else x-y !=0
@@ -178,7 +185,7 @@ D=M
 @SP //SP --
 M=M-1
 A=M //if x-y > 0
-D=M-D 
+D=M-D
 @gt{0}
 D;JGT
 @SP //else x-y <=0
@@ -203,7 +210,7 @@ D=M
 @SP //SP --
 M=M-1
 A=M //if x-y < 0
-D=M-D 
+D=M-D
 @lt{0}
 D;JLT
 @SP //else x-y >=0
@@ -230,7 +237,7 @@ D=M
 M=M-1
 @SP //result x and y
 A=M
-D=D&M 
+D=D&M
 @SP //RAM[SP]= result
 A=M
 M=D
@@ -248,7 +255,7 @@ D=M
 M=M-1
 @SP //result x or y
 A=M
-D=D|M 
+D=D|M
 @SP //RAM[SP]= result
 A=M
 M=D
@@ -494,7 +501,7 @@ M=D //LCL = SP
 ({2}) //(returnAddress)
 """
 
-#maybe we can use temp memory segment to store endFrame and retAddr?
+# maybe we can use temp memory segment to store endFrame and retAddr?
     return_asm = """
 //return
 @LCL
